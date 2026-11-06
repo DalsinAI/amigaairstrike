@@ -12,7 +12,10 @@ bbc52e48b3f293b0ffd8ffe0b0fd9da9d5b3886561fc3bb16f858e797823d78b), with
 Debian's patches 0.99+1.0pre6a-12 as the second commit. Branch
 team2/airstrike-amiga.
 
-Status: builds; not yet run in the lab.
+Status: runs in the lab (Instance-45 on GFOpenUp 0.8.19, 6 November
+2026): the start screen, a game (the sky, clouds, zeppelin, balloons, the
+cannon firing, both barons' gauges and the score), the Escape menu and
+Quit game back to the Shell. Not yet tried: flying a plane from the keys.
 
 
 What you need
@@ -28,8 +31,10 @@ How to play
 -----------
 
 Open the Airstrike icon, or run Airstrike from a Shell. The settings are
-in the drawer's airstrikerc (window size, full screen, the keys); the
-pictures are in data/. Like Debian's package it has no sound: the source
+in the drawer's airstrikerc (window size, full screen); the pictures are
+in data/. Red Baron: Left and Right turn, comma accelerates, full stop
+fires; Blue Baron: D and F turn, Ctrl accelerates, Shift fires; Escape is
+the menu (Players setup chooses who is human). Like Debian's package it has no sound: the source
 has no sound files.
 
 
