@@ -21,7 +21,7 @@ int config_setup()
     }
   if (getenv("HOME"))
     {
-      sprintf(cbuf,"%s/%s",getenv("HOME"),USER_CONFIG_FILE);      
+      snprintf(cbuf,sizeof(cbuf),"%s/%s",getenv("HOME"),USER_CONFIG_FILE);
       cfile = fopen(cbuf,"r");
       if (cfile)
 	{

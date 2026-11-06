@@ -198,9 +198,10 @@ static void sigget(sprite_t *s, int signal, void *data)
 	}
       break;
     case SIGNAL_NUM0: /* create bomb */
-      if (sprite_timer_finished(((struct biplane*)s)->bomb_timer) &&	  
-	  (!(s->state & BIPLANE_CRASHING)))
+      if (sprite_timer_finished(((struct biplane*)s)->bomb_timer) &&
+	  (!(s->state & BIPLANE_CRASHING)) && (((struct biplane*)s)->nr_bombs > 0))
 	{
+	  ((struct biplane*)s)->nr_bombs--;
 	  p = sprite_create(&bomb);
 	  p->anim_p = s->anim_p;
 	  ((mech_sprite_t *)p)->angle = ((mech_sprite_t *)s)->angle;

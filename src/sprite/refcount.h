@@ -9,7 +9,7 @@
 
 /* freefn will be called with x as argument if the refcount goes below 1 */
 #define DEREF(x,freefn) (x)->refcount -= 2; \
-if ((x)->refcount <= 1) {(freefn)(x);}
+if ((x)->refcount == 1) {(freefn)(x);}
 
 /* Marks the referenced obj as dead */
 #define REFKILL(x) ((x)->refcount |= 1)

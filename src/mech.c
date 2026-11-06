@@ -335,11 +335,10 @@ void mech_sprite_collide(sprite_t *s1, sprite_t *s2, int x, int y)
     n[2]*((mech_sprite_t *)s1)->ang_vel +
     n[3]*((mech_sprite_t *)s2)->ang_vel;
 
-  if (a > 0)
-    {
-      b = n[0]*delta[0] + n[1]*delta[1] + n[2]*delta[2] 
+  b = n[0]*delta[0] + n[1]*delta[1] + n[2]*delta[2] 
 	- n[0]*delta[3] - n[1]*delta[4] + n[3]*delta[5];
-      
+  if ( (a > 0) && (abs(b) > 0) )
+    {
       c = -1.4*a/b;
       
       s1->vel[0] += c*delta[0];
@@ -479,10 +478,9 @@ void mech_sprite_bg_collide(sprite_t *s1, int x, int y)
   a = n[0]*s1->vel[0] + n[1]*s1->vel[1] + 
     n[2]*((mech_sprite_t *)s1)->ang_vel;
 
-  if (a > 0)
+  b = n[0]*delta[0] + n[1]*delta[1] + n[2]*delta[2];
+  if ( (a > 0) && (abs(b) > 0) )
     {
-      b = n[0]*delta[0] + n[1]*delta[1] + n[2]*delta[2];
-      
       c = -1.2*a/b;
       
       s1->vel[0] += c*delta[0];

@@ -74,7 +74,16 @@ static int general_setup(void)
   console_set_pos(9,254);
   console_load_bg(path_to_data("console-bg.png"));
   sprite_types_setup();
-  sprite_background_load("data/bg.png","data/bgmask.png");
+#ifdef __amigaos__
+  /* the drawer's data/ (datapath in PROGDIR:airstrikerc) */
+  {
+    char bgmask[512];
+    strcpy(bgmask, path_to_data("bgmask.png"));
+    sprite_background_load(path_to_data("bg.png"), bgmask);
+  }
+#else
+  sprite_background_load("/usr/share/games/airstrike/bg.png","/usr/share/games/airstrike/bgmask.png");
+#endif
 
   level_setup();
   winds_setup();
@@ -92,8 +101,8 @@ void players_setup(void)
   player_sprite_type[1] = &biplane;
   player_startpos[0][0] = 700;
   player_startpos[0][1] = 500;
-  player_startpos[1][0] = 5;
-  player_startpos[1][1] = 300;
+  player_startpos[1][0] = 100;
+  player_startpos[1][1] = 500;
   player_points[0] = max_points;
   player_points[1] = max_points;
 

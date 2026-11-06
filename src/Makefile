@@ -1,14 +1,15 @@
 CFLAGS:= -g -O2 -Wall -Wno-unused $(OPTIONS)
 #
 CFLAGS += $(shell sdl-config --cflags) -Isprite -I. -Isupport -DINLINE=inline
-CFILES:= $(shell find . -name '*.c')
+CFLAGS += `dpkg-buildflags --get CFLAGS`
+CFILES:= $(sort $(shell find . -name '*.c'))
 OBJECTS:= $(CFILES:.c=.o)
 
 airstrike: $(OBJECTS)
-	$(CC) -o $@ $(CFLAGS) $(OBJECTS) `sdl-config --libs` -lSDL_image
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(OBJECTS) `sdl-config --libs` -lSDL_image -lm
 
 airstrike-sound: $(OBJECTS)
-	$(CC) -o $@ $(CFLAGS) $(OBJECTS) `sdl-config --libs` -lSDL_image -lSDL_mixer
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(OBJECTS) `sdl-config --libs` -lSDL_image -lSDL_mixer
 
 # Use the rule below when coding new sprite types
 #sprites_autogen.h: sprite_types/*.c

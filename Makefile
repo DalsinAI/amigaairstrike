@@ -29,3 +29,15 @@ package: clean
 # packages new files listed in new-files.txt
 new:
 	tar -zcvf new.tgz -T new-files.txt
+
+install:
+	install -d $(DESTDIR)/usr/games
+	install airstrike $(DESTDIR)/usr/games/airstrike
+	install -d $(DESTDIR)/usr/share/games/airstrike
+	install -d $(DESTDIR)/usr/share/games/airstrike/sound
+	install -m 644 data/*.png $(DESTDIR)/usr/share/games/airstrike
+	install -m 644 data/*.txt $(DESTDIR)/usr/share/games/airstrike
+#	install -m 644 data/sound/*.wav $(DESTDIR)/usr/share/games/airstrike/sound
+	install -d $(DESTDIR)/etc
+	install -m 644 airstrikerc $(DESTDIR)/etc/airstrikerc
+
