@@ -6,7 +6,7 @@
 /* absolute path to main config file (for now it's airstrikerc in the
    current dir)*/
 #ifndef ROOT_CONFIG_FILE
-#define ROOT_CONFIG_FILE "airstrikerc"
+#define ROOT_CONFIG_FILE "/etc/airstrikerc"
 #endif
 /* path to file in users $HOME */
 #ifndef USER_CONFIG_FILE
