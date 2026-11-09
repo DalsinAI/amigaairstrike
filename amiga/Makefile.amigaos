@@ -66,7 +66,6 @@ dist: $(BUILD)/$(PROG) $(ICONS) AMIGA_PORT.md
 	cp COPYING $(OUT)/COPYING.txt
 	cp amiga/icons/Airstrike.info amiga/icons/ReadMe.info $(OUT)/
 	cp amiga/icons/ReadMe.info $(OUT)/COPYING.txt.info
-	cp amiga/icons/Folder.info $(OUT)/data.info
 	cp amiga/icons/Airstrike-drawer.info dist/Airstrike.info
 
 -include $(OBJS:.o=.d)
